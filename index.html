@@ -522,7 +522,7 @@
             Poems
               </h1>
 
-   <h3> For Her</h3>
+  <!-- <h3> For Her</h3>
             
 <p class="subtitle-a">
                 Looking at the mirror, thinking of the past </p>
@@ -639,7 +639,223 @@
      <p class="subtitle-a">औषधी केबल रक्सी छ र रक्सी को मात छ।
   </p>
  
- 
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poem Collection</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #0078ff;
+    }
+
+    p {
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Poem List Styles */
+    #poem-list h3 {
+      cursor: pointer;
+      color: #0078ff;
+      margin: 1rem 0;
+      transition: color 0.3s;
+    }
+
+    #poem-list h3:hover {
+      color: #0056b3;
+    }
+
+    /* Poem Display Styles */
+    #poem-content {
+      margin-top: 2rem;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    #poem-content h3 {
+      color: #0078ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Poem Collection</h2>
+    <p>Click a topic to read the poem.</p>
+
+    <!-- Poem Titles -->
+    <div id="poem-list">
+      <h3 class="poem-title" data-poem="poem1">For Her</h3>
+      <h3 class="poem-title" data-poem="poem2">Alone While Together</h3>
+      <h3 class="poem-title" data-poem="poem3">End?</h3>
+      <h3 class="poem-title" data-poem="poem4">Missing</h3>
+      <h3 class="poem-title" data-poem="poem5">Me</h3>
+      <h3 class="poem-title" data-poem="poem6">जोखिम को जिन्दगी</h3>
+      <h3 class="poem-title" data-poem="poem7">ओठको याद</h3>
+    </div>
+
+    <!-- Poem Content Display -->
+    <div id="poem-content">
+      <h3 id="poem-title"></h3>
+      <p id="poem-body"></p>
+    </div>
+  </div>
+
+  <script>
+    const poems = {
+      poem1: {
+        title: "For Her",
+        body: `
+          Looking at the mirror, thinking of the past<br>
+          Who said it’s light, time runs fast<br>
+          Did the mistake again, it wasn’t the last<br>
+          Stars could be counted but the love is so vast.<br>
+          <br>
+          I express my feelings, she always says no<br>
+          My brain says stop, heart keeps on doing so<br>
+          I know that one day I’ll have to see her go<br>
+          She will be far away; I’ll still love her though.<br>
+          <br>
+          I stare at my phone, waiting for her call<br>
+          I could wait my whole life, for that innocent girl<br>
+          Lots of feeling I have, can’t write them all<br>
+          Coffee in the cup, makes the memory recall.<br>
+          <br>
+          She is returning, with the moment I’m waiting for<br>
+          All the events of the past will once again occur<br>
+          Not for you madam, not for you sir<br>
+          This poem is my gift, only for her.
+        `
+      },
+      poem2: {
+        title: "Alone While Together",
+        body: `
+          Together in the bed but separated!<br>
+          Bordered by ego that our attitude made.<br>
+          Smiling, talking, and living but dead!<br>
+          Our love like fall color, starting to fade.<br>
+          <br>
+          Cuddling, hugging, and kissing but physically far,<br>
+          Trying to gaze each other from our emotional bar<br>
+          Working to figure out where my weaknesses are,<br>
+          In the fear of losing her and seeing her go far.
+        `
+      },
+      poem3: {
+        title: "End?",
+        body: `
+          The same rope, I used to play swing of!<br>
+          The same me, deprived of care and love.<br>
+          I want that same rope around my neck<br>
+          To be out of all the judgments people make.
+        `
+      },
+      poem4: {
+        title: "Missing",
+        body: `
+          Far away from the home, everything’s new<br>
+          Mom, Dad – do you still miss me, like I miss you?<br>
+          Do you remember me and still keep me in your heart?<br>
+          Am I still important to you or have you kept me apart?<br>
+          <br>
+          Eating a little bit and thinking to save some<br>
+          With the starving stomach, my eyes search for you mom<br>
+          Lots of pressure in the life, getting nearly mad<br>
+          With the empty pocket, my heart searches for you dad.<br>
+          <br>
+          Being away is the feeling, not a lot of people know<br>
+          Vacation starts soon, and I have nowhere to go<br>
+          Sleepless in the night, wishing to be home<br>
+          I could do nothing, then to write this poem!!
+        `
+      },
+      poem5: {
+        title: "Me",
+        body: `
+          Inside in a brain, illogical fight<br>
+          Looking stressful, struggling to write<br>
+          Got an exam soon, assignment due<br>
+          Lab report, research paper- keeping all in queue<br>
+          <br>
+          Waking up whole night, sleeping in a dawn<br>
+          In the bed till mid-day, waiting for the sun<br>
+          Missing class each day, reach the work late<br>
+          Antisocial, boring, hated by the mate.
+        `
+      },
+      poem6: {
+        title: "जोखिम को जिन्दगी",
+        body: `
+          जोखिम मा बाँच्नु आफ्नै रहर हो<br>
+          यहाँ जे पनि हुन सक्छ यो शहर हो<br>
+          आफ्नै हात ले खुवाएउ, मैले पनि खाइदिएं<br>
+          नत्र थाहा थियो तिम्ले दिएको त्यो जहर हो<br>
+          <br>
+          धेरै पछी नेता आएछन नि बा घरमा<br>
+          हो बाबु यो चुनावको प्रहर हो<br>
+          म तिरै आइरहेछ रङिन डोली बोकेर<br>
+          कि त्यो मृत्यु हो कि त्यो माया को लहर हो
+        `
+      },
+      poem7: {
+        title: "ओठको याद",
+        body: `
+          यो मन छ, मन भित्र तिम्रै याद छ<br>
+          यि ओठहरु मा तिम्रै ओठको स्वाद छ<br>
+          तिमी आयौ अनी गएउ सबै सकाएर<br>
+          यहाँ जिन्दगी छ, जिन्दगी को पनि त सिमित म्याद छ।<br>
+          <br>
+          उसले पनि अरुले जस्तै झुठो आस देखायो,<br>
+          एक्दिन मर्नु पर्छ, यो कुरा मा उ अग्यात छ।<br>
+          घाम डुब्न बाँकी नै छ, एकै छिन त बस म सँग<br>
+          उ सँग बिताउन त तिमी सँग पुरा रात छ।<br>
+          <br>
+          चोट दिने तिमी छौ अनी यो दुनियाँ छ,<br>
+          औषधी केबल रक्सी छ र रक्सी को मात छ।
+        `
+      }
+    };
+
+    document.querySelectorAll('.poem-title').forEach(title => {
+      title.addEventListener('click', () => {
+        const poemKey = title.getAttribute('data-poem');
+        const poem = poems[poemKey];
+
+        if (poem) {
+          document.getElementById('poem-title').innerHTML = poem.title;
+          document.getElementById('poem-body').innerHTML = poem.body;
+          document.getElementById('poem-content').style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+   
  
  </div>
 
