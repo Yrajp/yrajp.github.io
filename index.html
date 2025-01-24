@@ -89,7 +89,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Transition with Screwdriver</title>
+  <title>Realistic Screwdriver Page Transition</title>
   <style>
     /* General Styles */
     body, html {
@@ -117,102 +117,89 @@
       color: white;
     }
 
-    /* Screwdriver and Screw Animation */
-    .screwdriver-container {
+    /* Screwdriver and Screw */
+    .transition-container {
       position: fixed;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      display: flex;
-      align-items: center;
       z-index: 1000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .screwdriver {
-      width: 100px;
-      height: 40px;
-      background: #ffcc00;
-      border-radius: 5px;
-      position: relative;
+    .screwdriver-svg {
+      width: 150px;
     }
 
-    .screwdriver::before {
-      content: '';
-      position: absolute;
+    .screw-svg {
+      width: 50px;
+    }
+
+    /* Page Roll Effect */
+    .rolling-page {
+      position: fixed;
       top: 0;
       left: 0;
-      width: 20px;
-      height: 40px;
-      background: #888;
-      border-radius: 5px 0 0 5px;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      transform-origin: bottom center;
+      transform: scaleY(1);
+      z-index: 2000;
     }
 
-    .screw {
-      width: 20px;
-      height: 20px;
-      background: #333;
-      border-radius: 50%;
-      margin-left: 10px;
-    }
-
-    .screw .line {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 10px;
-      height: 2px;
-      background: white;
-      transform: translate(-50%, -50%);
-    }
-
-    /* Animation Keyframes */
+    /* Keyframes for Animations */
     @keyframes unscrew {
       0% {
         transform: rotate(0deg);
       }
       100% {
-        transform: rotate(360deg) translateX(100px);
+        transform: rotate(360deg);
       }
     }
 
-    @keyframes screwdriverMove {
+    @keyframes rollUp {
       0% {
-        transform: translateX(-50%);
+        transform: scaleY(1);
       }
       100% {
-        transform: translateX(-50%) translateY(-30px);
+        transform: scaleY(0);
       }
     }
 
-    .screwdriver-active {
-      opacity: 1;
+    .unscrew {
+      animation: unscrew 1.5s linear forwards;
+    }
+
+    .roll-up {
+      animation: rollUp 1.5s ease-in-out forwards;
     }
   </style>
 </head>
 <body>
-  <!-- Screwdriver Animation -->
-  <div class="screwdriver-container">
-    <div class="screwdriver"></div>
-    <div class="screw">
-      <div class="line"></div>
-    </div>
+  <!-- Transition Effect -->
+  <div class="transition-container">
+    <img class="screwdriver-svg" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Screwdriver_icon.svg" alt="Screwdriver">
+    <img class="screw-svg" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Flathead_screw.svg" alt="Screw">
   </div>
+
+  <!-- Rolling Page -->
+  <div class="rolling-page"></div>
 
   <!-- Pages -->
   <div class="page">
-    <h1>Welcome to the Screwdriver Transition</h1>
-    <p>Scroll to see the next page with animation.</p>
+    <h1>Welcome to the Realistic Screwdriver Transition</h1>
+    <p>Scroll to see the effect.</p>
   </div>
   <div class="page">
     <h1>Page 2</h1>
-    <p>Another page with the screwdriver effect.</p>
+    <p>The screwdriver and screw animation will run on transition.</p>
   </div>
   <div class="page">
     <h1>Page 3</h1>
-    <p>Keep scrolling for more!</p>
+    <p>Another page with the rolling carpet effect.</p>
   </div>
   <div class="page">
     <h1>Page 4</h1>
@@ -220,22 +207,29 @@
   </div>
 
   <script>
-    // Handle Scroll Animation
-    const screwdriverContainer = document.querySelector('.screwdriver-container');
-    const screw = document.querySelector('.screw');
+    const screwdriver = document.querySelector('.screwdriver-svg');
+    const screw = document.querySelector('.screw-svg');
+    const rollingPage = document.querySelector('.rolling-page');
     let isAnimating = false;
 
     window.addEventListener('scroll', () => {
       if (!isAnimating) {
-        // Activate animation
         isAnimating = true;
-        screwdriverContainer.classList.add('screwdriver-active');
-        screw.style.animation = 'unscrew 1s linear forwards';
-        
+
+        // Add unscrew animation
+        screw.classList.add('unscrew');
+
+        // Add rolling page animation after unscrewing
         setTimeout(() => {
-          screwdriverContainer.style.opacity = 0; // Hide screwdriver
-          isAnimating = false; // Reset animation
+          rollingPage.classList.add('roll-up');
         }, 1500);
+
+        // Reset animation after completion
+        setTimeout(() => {
+          rollingPage.classList.remove('roll-up');
+          screw.classList.remove('unscrew');
+          isAnimating = false;
+        }, 3000);
       }
     });
   </script>
