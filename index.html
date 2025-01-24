@@ -83,6 +83,151 @@
     </div>
   </div><!-- End home Section -->
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poem Collection with Gears Transition</title>
+  <style>
+    /* General Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .page {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .page:nth-child(odd) {
+      background-color: #f4f4f9;
+    }
+
+    .page:nth-child(even) {
+      background-color: #0078ff;
+      color: white;
+    }
+
+    .gears {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .gear {
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      border: 8px solid #555;
+      border-top-color: #0078ff;
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+    }
+
+    .gear:nth-child(2) {
+      width: 70px;
+      height: 70px;
+      border-width: 10px;
+      animation-duration: 1.5s;
+    }
+
+    .gear:nth-child(3) {
+      width: 90px;
+      height: 90px;
+      border-width: 12px;
+      animation-duration: 1s;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .gears-active {
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <div class="gears">
+    <div class="gear"></div>
+    <div class="gear"></div>
+    <div class="gear"></div>
+  </div>
+
+  <!-- Pages -->
+  <div class="page">
+    <h1>Welcome to the Poem Collection</h1>
+  </div>
+  <div class="page">
+    <h1>Poem 1: For Her</h1>
+  </div>
+  <div class="page">
+    <h1>Poem 2: Alone While Together</h1>
+  </div>
+  <div class="page">
+    <h1>Poem 3: End?</h1>
+  </div>
+  <div class="page">
+    <h1>Poem 4: Missing</h1>
+  </div>
+  <div class="page">
+    <h1>Poem 5: Me</h1>
+  </div>
+  <div class="page">
+    <h1>Poem 6: जोखिम को जिन्दगी</h1>
+  </div>
+  <div class="page">
+    <h1>Poem 7: ओठको याद</h1>
+  </div>
+
+  <script>
+    // Detect Scroll and Show Gears Transition
+    const gears = document.querySelector('.gears');
+    let isScrolling;
+
+    window.addEventListener('scroll', () => {
+      // Show the gears when scrolling starts
+      gears.classList.add('gears-active');
+
+      // Clear the previous timeout to debounce the hiding logic
+      clearTimeout(isScrolling);
+
+      // Hide the gears after 500ms of no scrolling
+      isScrolling = setTimeout(() => {
+        gears.classList.remove('gears-active');
+      }, 500);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+  
+
   <main id="main">
 
     <!-- ======= About me Section ======= -->
