@@ -89,7 +89,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poem Collection with Gears Transition</title>
+  <title>Page Transition with Screwdriver</title>
   <style>
     /* General Styles */
     body, html {
@@ -105,10 +105,11 @@
       justify-content: center;
       align-items: center;
       position: relative;
+      text-align: center;
     }
 
     .page:nth-child(odd) {
-      background-color: #f4f4f9;
+      background-color: #f0f0f0;
     }
 
     .page:nth-child(even) {
@@ -116,92 +117,126 @@
       color: white;
     }
 
-    /* Gears Container */
-    .gears {
+    /* Screwdriver and Screw Animation */
+    .screwdriver-container {
       position: fixed;
-      top: 50%;
+      bottom: 20px;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       display: flex;
-      justify-content: center;
       align-items: center;
       z-index: 1000;
       opacity: 0;
       pointer-events: none;
+      transition: opacity 0.3s;
     }
 
-    .gear {
+    .screwdriver {
       width: 100px;
-      height: 100px;
-      margin: 10px;
-      animation: spin 2s linear infinite;
+      height: 40px;
+      background: #ffcc00;
+      border-radius: 5px;
+      position: relative;
     }
 
-    .gear:nth-child(2) {
-      width: 140px;
-      height: 140px;
-      animation-duration: 1.5s;
+    .screwdriver::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 40px;
+      background: #888;
+      border-radius: 5px 0 0 5px;
     }
 
-    .gear:nth-child(3) {
-      width: 180px;
-      height: 180px;
-      animation-duration: 1s;
+    .screw {
+      width: 20px;
+      height: 20px;
+      background: #333;
+      border-radius: 50%;
+      margin-left: 10px;
     }
 
-    /* Animation for spinning */
-    @keyframes spin {
-      from {
+    .screw .line {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 2px;
+      background: white;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Animation Keyframes */
+    @keyframes unscrew {
+      0% {
         transform: rotate(0deg);
       }
-      to {
-        transform: rotate(360deg);
+      100% {
+        transform: rotate(360deg) translateX(100px);
       }
     }
 
-    .gears-active {
+    @keyframes screwdriverMove {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(-50%) translateY(-30px);
+      }
+    }
+
+    .screwdriver-active {
       opacity: 1;
-      transition: opacity 0.3s;
     }
   </style>
 </head>
 <body>
-  <div class="gears">
-    <!-- Gear with Teeth -->
-    <svg class="gear" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 25 L55 15 L65 15 L70 25 L80 30 L85 40 L80 50 L85 60 L80 70 L70 75 L65 85 L55 85 L50 75 L40 75 L35 85 L25 85 L20 75 L10 70 L5 60 L10 50 L5 40 L10 30 L20 25 L25 15 L35 15 L40 25 Z" fill="#555"/>
-      <circle cx="50" cy="50" r="20" fill="#0078ff" />
-    </svg>
-
-    <svg class="gear" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 20 L55 10 L65 10 L70 20 L80 25 L90 35 L85 50 L90 65 L80 75 L70 80 L65 90 L55 90 L50 80 L40 80 L35 90 L25 90 L20 80 L10 75 L5 65 L10 50 L5 35 L10 25 L20 20 L25 10 L35 10 L40 20 Z" fill="#333"/>
-      <circle cx="50" cy="50" r="15" fill="#0078ff" />
-    </svg>
-
-    <svg class="gear" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 15 L60 10 L70 15 L80 20 L90 30 L85 40 L90 50 L85 60 L80 70 L70 80 L60 85 L50 90 L40 85 L30 80 L20 70 L15 60 L10 50 L15 40 L20 30 L30 20 L40 15 Z" fill="#777"/>
-      <circle cx="50" cy="50" r="10" fill="#0078ff" />
-    </svg>
+  <!-- Screwdriver Animation -->
+  <div class="screwdriver-container">
+    <div class="screwdriver"></div>
+    <div class="screw">
+      <div class="line"></div>
+    </div>
   </div>
 
-
+  <!-- Pages -->
+  <div class="page">
+    <h1>Welcome to the Screwdriver Transition</h1>
+    <p>Scroll to see the next page with animation.</p>
+  </div>
+  <div class="page">
+    <h1>Page 2</h1>
+    <p>Another page with the screwdriver effect.</p>
+  </div>
+  <div class="page">
+    <h1>Page 3</h1>
+    <p>Keep scrolling for more!</p>
+  </div>
+  <div class="page">
+    <h1>Page 4</h1>
+    <p>The end of the transition effect.</p>
+  </div>
 
   <script>
-    // Detect Scroll and Show Gears Transition
-    const gears = document.querySelector('.gears');
-    let isScrolling;
+    // Handle Scroll Animation
+    const screwdriverContainer = document.querySelector('.screwdriver-container');
+    const screw = document.querySelector('.screw');
+    let isAnimating = false;
 
     window.addEventListener('scroll', () => {
-      // Show the gears when scrolling starts
-      gears.classList.add('gears-active');
-
-      // Clear the previous timeout to debounce the hiding logic
-      clearTimeout(isScrolling);
-
-      // Hide the gears after 500ms of no scrolling
-      isScrolling = setTimeout(() => {
-        gears.classList.remove('gears-active');
-      }, 500);
+      if (!isAnimating) {
+        // Activate animation
+        isAnimating = true;
+        screwdriverContainer.classList.add('screwdriver-active');
+        screw.style.animation = 'unscrew 1s linear forwards';
+        
+        setTimeout(() => {
+          screwdriverContainer.style.opacity = 0; // Hide screwdriver
+          isAnimating = false; // Reset animation
+        }, 1500);
+      }
     });
   </script>
 </body>
