@@ -123,6 +123,9 @@
 
         
 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Runaway Button</title>
@@ -130,26 +133,25 @@
     body {
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f0f8ff;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
+      background-color: #f0f0f0;
     }
 
     .button-container {
       position: relative;
       width: 100%;
-      height: 100%;
+      height: 100vh; /* Full viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .runaway-button {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       padding: 15px 30px;
       font-size: 18px;
       background-color: #0078ff;
@@ -157,7 +159,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: top 0.2s ease, left 0.2s ease;
+      transition: top 0.2s ease, left 0.2s ease, transform 0.2s ease;
     }
 
     .runaway-button:hover {
@@ -167,26 +169,36 @@
 </head>
 <body>
   <div class="button-container">
-    <button class="runaway-button">My girlfriend's photo</button>
+    <button class="runaway-button">My girlfriend's photos</button>
   </div>
 
   <script>
-    const button = document.querySelector('.runaway-button');
-    const container = document.querySelector('.button-container');
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.querySelector('.runaway-button');
+      const container = document.querySelector('.button-container');
 
-    button.addEventListener('mouseover', () => {
-      const containerRect = container.getBoundingClientRect();
-      const buttonRect = button.getBoundingClientRect();
+      button.addEventListener('mouseover', () => {
+        const containerRect = container.getBoundingClientRect();
+        const buttonRect = button.getBoundingClientRect();
 
-      // Generate new random position
-      const newTop = Math.random() * (containerRect.height - buttonRect.height);
-      const newLeft = Math.random() * (containerRect.width - buttonRect.width);
+        // Generate new random position within the container bounds
+        const newTop = Math.random() * (containerRect.height - buttonRect.height);
+        const newLeft = Math.random() * (containerRect.width - buttonRect.width);
 
-      // Set new position
-      button.style.top = `${newTop}px`;
-      button.style.left = `${newLeft}px`;
+        // Apply the new position
+        button.style.top = `${newTop}px`;
+        button.style.left = `${newLeft}px`;
+
+        // Add a playful "jump" effect
+        button.style.transform = `scale(1.1)`;
+        setTimeout(() => {
+          button.style.transform = `scale(1)`;
+        }, 200);
+      });
     });
   </script>
+</body>
+</html>
 
               
 
