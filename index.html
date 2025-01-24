@@ -97,7 +97,7 @@
     <!-- ======= About me Section ======= -->
     
         
-        <section id="about">
+     <section id="about">
   <div class="box-shadow-full">
     <div class="row">
       <div class="col-sm-6 col-md-5">
@@ -113,6 +113,9 @@
         <p><span class="title-s">Email: </span> <span>yamanpandey2056@gmail.com</span></p>
         <p><span class="title-s">Phone: </span> <span>507-304-5525</span></p>
 
+        <!-- Resume Button -->
+        <a href="assets/resume.pdf" class="btn btn-primary" target="_blank" style="margin-right: 20px;">View Resume</a>
+
         <!-- Runaway Button -->
         <div class="runaway-button-container">
           <button class="runaway-button">My Girlfriend's Pictures</button>
@@ -123,28 +126,45 @@
 </section>
 
 <style>
+  /* Resume button styling */
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #0078ff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
   /* Styles for the runaway button */
   .runaway-button-container {
     position: relative;
-    height: 200px; /* Add a specific height for button movement */
+    height: 200px; /* Defines the movement area for the button */
     margin-top: 20px;
-    overflow: hidden; /* Ensure the button stays within bounds */
+    overflow: hidden; /* Ensures the button stays within the container */
   }
 
   .runaway-button {
     position: absolute;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #0078ff;
+    background-color: #f44336;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: top 0.2s ease, left 0.2s ease, transform 0.2s ease;
+    transition: top 0.1s ease, left 0.1s ease, transform 0.1s ease;
   }
 
   .runaway-button:hover {
-    background-color: #0056b3;
+    background-color: #d32f2f;
   }
 </style>
 
@@ -165,11 +185,17 @@
       button.style.top = `${newTop}px`;
       button.style.left = `${newLeft}px`;
 
-      // Add a playful "jump" effect
+      // Add playful jump animation
       button.style.transform = `scale(1.1)`;
       setTimeout(() => {
         button.style.transform = `scale(1)`;
-      }, 200);
+      }, 100);
+    });
+
+    // Prevent the button from being clicked (fallback in case the user gets lucky)
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      alert("Nice try, but no clicking allowed!");
     });
   });
 </script>
