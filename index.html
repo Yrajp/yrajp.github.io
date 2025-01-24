@@ -97,114 +97,82 @@
     <!-- ======= About me Section ======= -->
     
         
-        <section id = "about">
-            <div class="box-shadow-full">
-             
-            
-                  <div class="row">
-                    <div class="col-sm-6 col-md-5">
-                      <div class="about-img">
-                        <img src="assets/img/1685025666249.jpg" class="img-fluid rounded b-shadow-a" alt="">
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-7">
-                      
-                        <p><span class="title-s">Name: </span> <span>Yaman Pandey</span></p>
-                        <p><span class="title-s">Education: </span> <span>Masters in Manufacturing Engineering Technology </span></p>
-                      <p>(Expected Graduation: December 2026)</p>
-                      <p> Bachelors in Mechanical Engineering (Graduated: May 2023) </p>
-                        <p><span class="title-s">Email: </span> <span>yamanpandey2056@gmail.com</span></p>
-                        <p><span class="title-s">Phone: </span> <span>507-304-5525</span></p>
+        <section id="about">
+  <div class="box-shadow-full">
+    <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <div class="about-img">
+          <img src="assets/img/1685025666249.jpg" class="img-fluid rounded b-shadow-a" alt="">
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7">
+        <p><span class="title-s">Name: </span> <span>Yaman Pandey</span></p>
+        <p><span class="title-s">Education: </span> <span>Masters in Manufacturing Engineering Technology </span></p>
+        <p>(Expected Graduation: December 2026)</p>
+        <p>Bachelors in Mechanical Engineering (Graduated: May 2023)</p>
+        <p><span class="title-s">Email: </span> <span>yamanpandey2056@gmail.com</span></p>
+        <p><span class="title-s">Phone: </span> <span>507-304-5525</span></p>
 
-<button class="button" onClick="window.open('/assets/pdf/Resume.pdf', '_blank')">
-    <span class="icon">Resume</span> 
-</button>
-
-
-        
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Runaway Button Integration</title>
-  <style>
-    /* Styles for the runaway button section */
-    .runaway-section {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f9f9f9;
-      position: relative;
-    }
-
-    .runaway-button-container {
-      position: relative;
-      width: 100%;
-      height: 100%; /* Full section height */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden; /* Prevent button from escaping */
-    }
-
-    .runaway-button {
-      position: absolute;
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #0078ff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: top 0.2s ease, left 0.2s ease, transform 0.2s ease;
-    }
-
-    .runaway-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
-<body>
-  <!-- Runaway button section -->
-  <div class="runaway-section">
-    <div class="runaway-button-container">
-      <button class="runaway-button">Try to Click Me!</button>
+        <!-- Runaway Button -->
+        <div class="runaway-button-container">
+          <button class="runaway-button">My Girlfriend's Pictures</button>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const button = document.querySelector('.runaway-section .runaway-button');
-      const container = document.querySelector('.runaway-section .runaway-button-container');
+<style>
+  /* Styles for the runaway button */
+  .runaway-button-container {
+    position: relative;
+    height: 200px; /* Add a specific height for button movement */
+    margin-top: 20px;
+    overflow: hidden; /* Ensure the button stays within bounds */
+  }
 
-      button.addEventListener('mouseover', () => {
-        const containerRect = container.getBoundingClientRect();
-        const buttonRect = button.getBoundingClientRect();
+  .runaway-button {
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0078ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: top 0.2s ease, left 0.2s ease, transform 0.2s ease;
+  }
 
-        // Generate new random position within the container bounds
-        const newTop = Math.random() * (containerRect.height - buttonRect.height);
-        const newLeft = Math.random() * (containerRect.width - buttonRect.width);
+  .runaway-button:hover {
+    background-color: #0056b3;
+  }
+</style>
 
-        // Apply the new position
-        button.style.top = `${newTop}px`;
-        button.style.left = `${newLeft}px`;
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('#about .runaway-button');
+    const container = document.querySelector('#about .runaway-button-container');
 
-        // Add a playful "jump" effect
-        button.style.transform = `scale(1.1)`;
-        setTimeout(() => {
-          button.style.transform = `scale(1)`;
-        }, 200);
-      });
+    button.addEventListener('mouseover', () => {
+      const containerRect = container.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
+
+      // Generate new random position within the container bounds
+      const newTop = Math.random() * (containerRect.height - buttonRect.height);
+      const newLeft = Math.random() * (containerRect.width - buttonRect.width);
+
+      // Apply the new position
+      button.style.top = `${newTop}px`;
+      button.style.left = `${newLeft}px`;
+
+      // Add a playful "jump" effect
+      button.style.transform = `scale(1.1)`;
+      setTimeout(() => {
+        button.style.transform = `scale(1)`;
+      }, 200);
     });
-  </script>
-</body>
-</html>
+  });
+</script>
 
 
 
