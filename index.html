@@ -103,141 +103,158 @@
     <!-- ======= About me Section ======= -->
     
         
-<section id="about">
+Make Certified EIT appear when I scroll this page. Give me single code with html java script and css that I can replace this code with
+
+     
+     <section id="about">
   <div class="box-shadow-full">
     <div class="row">
-      <!-- Left column: photo -->
       <div class="col-sm-6 col-md-5">
         <div class="about-img">
           <img src="assets/img/1685025666249.jpg" class="img-fluid rounded b-shadow-a" alt="">
         </div>
       </div>
-
-      <!-- Right column: info -->
       <div class="col-sm-6 col-md-7">
         <p><span class="title-s">Name: </span> <span>Yaman Pandey</span></p>
-        <p><span class="title-s">Education: </span> <span>Masters in Manufacturing Engineering Technology</span></p>
+        <p><span class="title-s">Education: </span> <span>Masters in Manufacturing Engineering Technology </span></p>
         <p>(Expected Graduation: December 2026)</p>
         <p>Bachelors in Mechanical Engineering (Graduated: May 2023)</p>
         <p><span class="title-s">Email: </span> <span>yamanpandey2056@gmail.com</span></p>
         <p><span class="title-s">Phone: </span> <span>507-304-5525</span></p>
 
-        <!-- Resume button -->
-        <a href="assets/pdf/Yaman Resume CI.pdf" class="btn btn-primary" target="_blank" style="margin-right: 20px;">
-          View Resume
-        </a>
+        <!-- Resume Button -->
+        <a href="assets/pdf/Yaman Resume CI.pdf" class="btn btn-primary" target="_blank" style="margin-right: 20px;">View Resume</a>
 
-        <!-- Socials -->
-        <div class="socials" style="margin-top: 20px;">
-          <ul>
-            <li><a target="_blank" href="https://www.facebook.com/yaman.pandey.3"><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
-            <li><a target="_blank" href="https://www.instagram.com/yrajp/"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/yaman-pandey-40a536165/"><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
-            <li><a target="_blank" href="https://www.youtube.com/@yamanpandey8720"><span class="ico-circle"><i class="bi bi-youtube"></i></span></a></li>
-          </ul>
-        </div>
+        <!-- Runaway Button -->
+      <!--  <div class="runaway-button-container">
+          <button class="runaway-button">My Girlfriend's Pictures</button>
+        </div> -->
       </div>
     </div>
-
-    <!-- About me -->
-    <div class="about-me pt-4 pt-md-0">
-      <h1 align="center">About me</h1>
-      <p class="lead">
-        My name is Yaman Pandey. I am a Mechanical Engineer working towards my master's degree in
-        Manufacturing Engineering Technology. My hobbies include videography, writing poetry, and hiking.
-      </p>
-    </div>
-  </div>
-
-  <!-- Flying Certified EIT -->
-  <div id="eit-flyer">CERTIFIED EIT</div>
-
+  </div> 
 </section>
 
-<style>
-  /* Resume Button */
+
+  <style>
+  /* Resume button styling */
   .btn {
     padding: 10px 20px;
     font-size: 16px;
+    text-decoration: none;
     border-radius: 5px;
+    display: inline-block;
     background-color: #0078ff;
     color: white;
-    text-decoration: none;
-    transition: 0.3s ease;
-  }
-  .btn:hover { background-color: #0056b3; }
-
-  /* Social icons */
-  .socials ul {
-    list-style: none;
-    display: flex;
-    gap: 12px;
-    padding: 0;
-  }
-  .socials .ico-circle {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid #0078ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: none;
+    transition: background-color 0.3s ease;
   }
 
-  /* Flying EIT Badge */
-  #eit-flyer {
-    position: fixed;
-    top: 50%;
-    left: -300px;       /* Start fully off-screen */
-    transform: translateY(-50%);
-    background: #0078ff;
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+     <!--
+  /* Styles for the runaway button */
+  .runaway-button-container {
+    position: relative;
+    height: 200px; /* Defines the movement area for the button */
+    margin-top: 20px;
+    overflow: hidden; /* Ensures the button stays within the container */
+  }
+-->
+    <!--
+  .runaway-button {
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f44336;
     color: white;
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 0 15px rgba(0, 120, 255, 0.5);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-    z-index: 9999;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: top 0.1s ease, left 0.1s ease, transform 0.1s ease;
   }
 
-  /* Animate across screen */
-  @keyframes fly-across {
-    0%   { left: -300px; opacity: 1; }
-    50%  { left: 50%; transform: translate(-50%, -50%); opacity: 1; }
-    100% { left: 120%; opacity: 0; }
+  .runaway-button:hover {
+    background-color: #d32f2f;
   }
-
-  .fly-now {
-    animation: fly-across 3s ease-out forwards;
-  }
-</style>
-
+    -->
+</style> 
+ 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const flyer = document.getElementById("eit-flyer");
-    const aboutSection = document.getElementById("about");
-    let triggered = false; // run only once
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('#about .runaway-button');
+    const container = document.querySelector('#about .runaway-button-container');
 
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !triggered) {
-            triggered = true;
-            flyer.classList.add("fly-now");
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
+    button.addEventListener('mouseover', () => {
+      const containerRect = container.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
 
-    obs.observe(aboutSection);
+      // Generate new random position within the container bounds
+      const newTop = Math.random() * (containerRect.height - buttonRect.height);
+      const newLeft = Math.random() * (containerRect.width - buttonRect.width);
+
+      // Apply the new position
+      button.style.top = `${newTop}px`;
+      button.style.left = `${newLeft}px`;
+
+      // Add playful jump animation
+      button.style.transform = `scale(1.1)`;
+      setTimeout(() => {
+        button.style.transform = `scale(1)`;
+      }, 100);
+    });
+
+    // Prevent the button from being clicked (fallback in case the user gets lucky)
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      alert("Nice Try! You knew it was a prank!");
+    });
   });
-</script><!-- End About Section -->
+</script>
 
+
+
+
+                      
+<div class="socials">
+                      <ul>
+                        <li><a target="_blank" href="https://www.facebook.com/yaman.pandey.3"><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/yrajp/?igshid=YmMyMTA2M2Y%3D"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/yaman-pandey-40a536165/"><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
+                        <li><a target="_blank" href="https://www.youtube.com/@yamanpandey8720"><span class="ico-circle"><i class="bi bi-youtube"></i></span></a></li>
+                      </ul>
+                    </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  
+            
+                    
+                  </div>
+                </div>
+           
+                  <div class="about-me pt-4 pt-md-0">
+                    
+                      <h1 align="center">
+                        About me
+                      </h5>
+                    </div>
+                    <p class="lead">
+                   My name is Yaman Pandey. I am a Mechanical Engineer working towards my masters degree in Manufacturing 
+                      Engineering Technology. My hobbies includes videography, writing poetry, and hiking. 
+                    </p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
     <!-- ======= Projects Section ======= -->
    <section id="projects">
   <!DOCTYPE html>
