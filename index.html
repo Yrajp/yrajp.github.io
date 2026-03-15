@@ -714,7 +714,14 @@
     .research-showcase,
     .impact-grid,
     .engineering-grid,
-    .dashboard-grid {
+    .dashboard-grid,
+    .present-grid,
+    .tabs {
+      display: grid;
+      gap: 24px;
+    }
+
+    .tabs {
       display: grid;
       gap: 24px;
     }
@@ -725,6 +732,8 @@
     .impact-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .engineering-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .dashboard-grid { grid-template-columns: 1.1fr .9fr; }
+    .present-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .tabs { grid-template-columns: repeat(3, max-content); justify-content: center; gap: 12px; }
 
     .panel,
     .card,
@@ -854,7 +863,11 @@
     .pill,
     .project-tag,
     .tech-pill,
-    .career-chip {
+    .career-chip,
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -1310,8 +1323,8 @@
           <li><a href="#about">About</a></li>
           <li><a href="#certifications">Certifications</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#engineering">Engineering Lab</a></li>
           <li><a href="#research">Research</a></li>
+          <li><a href="#presentations">Presentations</a></li>
           <li><a href="#work">Work</a></li>
           <li><a href="#leadership">Leadership</a></li>
           <li><a href="#poems">Poems</a></li>
@@ -1350,8 +1363,8 @@
         </div>
 
         <div class="quick-links">
-          <a class="quick-link" href="#engineering"><strong>Engineering Lab</strong><br><span class="tiny">Animated mechanical, thermal, and system visuals</span></a>
-          <a class="quick-link" href="#work"><strong>Professional Experience</strong><br><span class="tiny">Reliability, manufacturing, and technical operations</span></a>
+          <a class="quick-link" href="#research"><strong>Research</strong><br><span class="tiny">HVAC optimization, predictive maintenance, and applied engineering studies</span></a>
+          <a class="quick-link" href="#presentations"><strong>Presentations</strong><br><span class="tiny">Posters, talks, and visual technical communication</span></a>
           <a class="quick-link" href="#contact"><strong>Connect</strong><br><span class="tiny">Email, phone, résumé, and socials</span></a>
         </div>
       </div>
@@ -1360,65 +1373,65 @@
         <div class="hero-stack parallax" data-speed="0.06">
           <div class="visual-panel visual-main" id="tiltCard">
             <div class="hero-media">
-              <img src="assets/img/IMG_1966.jpeg" alt="Yaman Pandey hero image" />
+              <div style="position:absolute; inset:0; background:
+                radial-gradient(circle at 18% 22%, rgba(95,168,255,.22), transparent 24%),
+                radial-gradient(circle at 82% 18%, rgba(125,124,255,.18), transparent 26%),
+                radial-gradient(circle at 50% 72%, rgba(87,255,208,.12), transparent 28%),
+                linear-gradient(180deg, rgba(8,16,30,.82), rgba(6,12,22,.96));"></div>
+              <div style="position:absolute; inset:0; background:
+                linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 42px 42px; opacity:.14;"></div>
+              <div style="position:absolute; inset:24px; border-radius:22px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); overflow:hidden;">
+                <div style="position:absolute; inset:18px 18px auto 18px; display:flex; gap:10px; flex-wrap:wrap; z-index:2;">
+                  <span class="tech-pill"><i class="bi bi-soundwave"></i> Predictive Maintenance</span>
+                  <span class="tech-pill"><i class="bi bi-house-gear"></i> HVAC Optimization</span>
+                  <span class="tech-pill"><i class="bi bi-gear-wide-connected"></i> Reliability</span>
+                </div>
+                <div style="position:absolute; left:28px; right:28px; top:92px; z-index:2;">
+                  <div class="panel-title" style="margin-bottom:14px;"><span>Portfolio Interface</span><span>Live Motion</span></div>
+                  <h3 style="margin:0 0 10px; font-size:clamp(1.6rem,3vw,2.6rem); line-height:1.05; font-family:'Playfair Display', serif;">Research-driven engineering, presented like a premium product</h3>
+                  <p class="muted" style="margin:0; max-width:560px;">A cleaner hero with smoother transitions, animated signal waves, floating glass layers, and a stronger focus on research and professional storytelling.</p>
+                </div>
+                <svg viewBox="0 0 800 520" role="img" aria-label="Hero signal animation" style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+                  <defs>
+                    <linearGradient id="heroSigA" x1="0" x2="1">
+                      <stop offset="0%" stop-color="#5fa8ff"/>
+                      <stop offset="100%" stop-color="#57ffd0"/>
+                    </linearGradient>
+                    <linearGradient id="heroSigB" x1="0" x2="1">
+                      <stop offset="0%" stop-color="#7d7cff"/>
+                      <stop offset="100%" stop-color="#ffd66b"/>
+                    </linearGradient>
+                  </defs>
+                  <g opacity="0.14" stroke="#ffffff">
+                    <line x1="0" y1="180" x2="800" y2="180"/>
+                    <line x1="0" y1="260" x2="800" y2="260"/>
+                    <line x1="0" y1="340" x2="800" y2="340"/>
+                  </g>
+                  <path d="M0 310 C90 250, 150 170, 240 210 S390 390, 490 300 650 150, 800 240" fill="none" stroke="url(#heroSigA)" stroke-width="8" stroke-linecap="round">
+                    <animate attributeName="d" dur="7s" repeatCount="indefinite" values="M0 310 C90 250, 150 170, 240 210 S390 390, 490 300 650 150, 800 240;M0 290 C95 230, 160 210, 250 220 S390 360, 490 290 650 180, 800 250;M0 310 C90 250, 150 170, 240 210 S390 390, 490 300 650 150, 800 240"/>
+                  </path>
+                  <path d="M0 228 C120 198, 170 298, 270 258 S430 150, 520 210 670 330, 800 278" fill="none" stroke="url(#heroSigB)" stroke-width="4.5" stroke-linecap="round" opacity=".82">
+                    <animate attributeName="d" dur="5.2s" repeatCount="indefinite" values="M0 228 C120 198, 170 298, 270 258 S430 150, 520 210 670 330, 800 278;M0 240 C118 214, 182 280, 280 246 S430 166, 520 220 670 312, 800 286;M0 228 C120 198, 170 298, 270 258 S430 150, 520 210 670 330, 800 278"/>
+                  </path>
+                  <g fill="#57ffd0">
+                    <circle cx="140" cy="232" r="7"><animate attributeName="r" values="7;12;7" dur="2.1s" repeatCount="indefinite"/></circle>
+                    <circle cx="352" cy="336" r="7"><animate attributeName="r" values="7;12;7" dur="2.1s" begin=".5s" repeatCount="indefinite"/></circle>
+                    <circle cx="610" cy="196" r="7"><animate attributeName="r" values="7;12;7" dur="2.1s" begin="1s" repeatCount="indefinite"/></circle>
+                  </g>
+                </svg>
+              </div>
             </div>
             <div class="visual-overlay">
               <div class="toolbar">
-                <span class="tech-pill"><i class="bi bi-lightning-charge"></i> Reliability</span>
-                <span class="tech-pill"><i class="bi bi-fan"></i> HVAC</span>
-                <span class="tech-pill"><i class="bi bi-gear-wide-connected"></i> Manufacturing</span>
+                <span class="tech-pill"><i class="bi bi-journal-richtext"></i> Research Tab</span>
+                <span class="tech-pill"><i class="bi bi-easel2"></i> Presentation Ready</span>
+                <span class="tech-pill"><i class="bi bi-stars"></i> Cinematic Motion</span>
               </div>
               <div class="scroll-cue">
                 <div class="scroll-wheel"><span></span></div>
-                <span>Scroll to enter the engineering story</span>
+                <span>Scroll to explore the portfolio</span>
               </div>
-            </div>
-          </div>
-
-          <div class="radar-panel parallax" data-speed="0.14">
-            <div class="panel-title"><span>System Scan</span><span>Live</span></div>
-            <div class="radar">
-              <span class="signal-dot signal-1"></span>
-              <span class="signal-dot signal-2"></span>
-              <span class="signal-dot signal-3"></span>
-            </div>
-            <div class="mini-stat">
-              <div><strong>3</strong><span>Core domains</span></div>
-              <div><strong>∞</strong><span>Iteration mindset</span></div>
-            </div>
-          </div>
-
-          <div class="system-panel parallax" data-speed="0.17">
-            <div class="panel-title"><span>Engineering Flow</span><span>Model</span></div>
-            <div class="system-flow">
-              <div class="node node-a"><i class="bi bi-tools"></i></div>
-              <div class="node node-b"><i class="bi bi-cpu"></i></div>
-              <div class="node node-c"><i class="bi bi-graph-up-arrow"></i></div>
-              <div class="flow-line line-ab"></div>
-              <div class="flow-line line-bc"></div>
-            </div>
-            <div class="mini-stat">
-              <div><strong>Design</strong><span>Build systems</span></div>
-              <div><strong>Data</strong><span>Improve outcomes</span></div>
-            </div>
-          </div>
-
-          <div class="hvac-panel parallax" data-speed="0.11">
-            <div class="panel-title"><span>Thermal Control</span><span>HVAC</span></div>
-            <div class="hvac-visual">
-              <div class="tiny muted">Adaptive heating profile</div>
-              <div class="temp-row">
-                <div class="temp-bar" style="height:38%"></div>
-                <div class="temp-bar" style="height:56%"></div>
-                <div class="temp-bar" style="height:74%"></div>
-                <div class="temp-bar" style="height:88%"></div>
-                <div class="temp-bar" style="height:66%"></div>
-                <div class="temp-bar" style="height:48%"></div>
-              </div>
-            </div>
-            <div class="mini-stat">
-              <div><strong>2250</strong><span>sq. ft. case home</span></div>
-              <div><strong>RC</strong><span>thermal model</span></div>
             </div>
           </div>
         </div>
