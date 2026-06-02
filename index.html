@@ -5,10 +5,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Yaman Pandey | Engineering Portfolio</title>
-<meta content="Engineering portfolio for Yaman Pandey highlighting reliability engineering, manufacturing systems, HVAC optimization, predictive maintenance, and doctoral work in Industrial and Systems Engineering." name="description"/>
+<meta content="Professional engineering portfolio for Yaman Pandey highlighting reliability engineering, manufacturing systems, HVAC optimization, predictive maintenance, and doctoral study in Industrial and Systems Engineering." name="description"/>
 <meta content="Yaman Pandey, mechanical engineer, industrial and systems engineering PhD, Mississippi State University, manufacturing engineering technology, reliability engineer, HVAC research, portfolio" name="keywords"/>
 <meta content="Yaman Pandey | Engineering Portfolio" property="og:title"/>
-<meta content="Clean engineering portfolio highlighting reliability, manufacturing systems, HVAC research, and Industrial and Systems Engineering doctoral work." property="og:description"/>
+<meta content="A clean professional engineering portfolio focused on reliability, manufacturing systems, HVAC research, and Industrial and Systems Engineering doctoral work." property="og:description"/>
 <meta content="https://yrajp.github.io/assets/img/path-to-your-cover-image.jpg" property="og:image"/>
 <meta content="https://yrajp.github.io" property="og:url"/>
 <meta content="website" property="og:type"/>
@@ -19,28 +19,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Playfair+Display:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
 <style>
-
     :root {
-      --bg: #0b1118;
-      --bg-soft: #0f1721;
-      --surface: #111b26;
-      --surface-2: #162231;
-      --surface-3: #1b2a3b;
-      --line: rgba(210, 224, 238, 0.14);
-      --line-strong: rgba(210, 224, 238, 0.24);
-      --text: #e9eef5;
-      --muted: #a8b5c4;
-      --muted-2: #7e8c9b;
-      --primary: #5aa9d6;
-      --primary-dark: #2b6f94;
-      --accent: #f0b84a;
-      --success: #6fcf97;
-      --shadow: 0 18px 45px rgba(0,0,0,.28);
-      --radius: 18px;
-      --radius-md: 14px;
-      --radius-sm: 10px;
-      --max: 1180px;
-      --header-h: 76px;
+      --bg: #f5f7fa;
+      --bg-soft: #eef2f6;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --surface-3: #eef4f8;
+      --line: #d8e0e8;
+      --line-strong: #b8c5d2;
+      --text: #17212b;
+      --muted: #536273;
+      --muted-2: #758294;
+      --primary: #1f5f8b;
+      --primary-dark: #164566;
+      --accent: #b17618;
+      --success: #2d8659;
+      --shadow: 0 10px 28px rgba(23, 33, 43, .08);
+      --radius: 14px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --max: 1160px;
+      --header-h: 72px;
     }
 
     * { box-sizing: border-box; }
@@ -49,51 +48,30 @@
       margin: 0;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text);
-      background:
-        linear-gradient(rgba(255,255,255,.026) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.026) 1px, transparent 1px),
-        radial-gradient(circle at 18% 0%, rgba(90,169,214,.11), transparent 30%),
-        linear-gradient(180deg, #091018 0%, var(--bg) 48%, #0a1118 100%);
-      background-size: 42px 42px, 42px 42px, auto, auto;
+      background: var(--bg);
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background: linear-gradient(115deg, transparent 0 72%, rgba(90,169,214,.045) 72% 72.25%, transparent 72.25% 100%);
-    }
+    body::before,
+    #starfield,
+    #networkCanvas,
+    #trailCanvas,
+    .noise,
+    .scanlines,
+    .ambient-orb,
+    .grid-overlay { display: none !important; }
 
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     button, input, textarea { font: inherit; }
-
-    #starfield, #networkCanvas, #trailCanvas,
-    .noise, .scanlines, .ambient-orb { display: none !important; }
-
-    .grid-overlay {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: .10;
-      background:
-        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-      background-size: 84px 84px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
-    }
 
     .progress-bar {
       position: fixed;
       top: 0; left: 0;
       width: 0%; height: 3px;
       z-index: 1100;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
+      background: var(--primary);
     }
 
     .glass { background: var(--surface); border: 1px solid var(--line); box-shadow: none; backdrop-filter: none; }
@@ -103,15 +81,20 @@
       top: 0; left: 0; right: 0;
       z-index: 1000;
       height: var(--header-h);
-      background: rgba(9, 16, 24, .94);
+      background: rgba(255,255,255,.96);
       border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-wrap, .section, .hero-shell, footer {
+      width: min(calc(100% - 36px), var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .nav-wrap {
-      width: min(calc(100% - 32px), var(--max));
       height: 100%;
-      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -121,21 +104,22 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       font-weight: 800;
       letter-spacing: .01em;
       white-space: nowrap;
+      color: var(--primary-dark);
     }
 
     .logo-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
       display: grid;
       place-items: center;
-      background: #10283a;
-      border: 1px solid rgba(90,169,214,.36);
-      color: #b7e3ff;
+      background: #e8f2f8;
+      border: 1px solid #c8dce8;
+      color: var(--primary);
     }
 
     nav ul {
@@ -143,26 +127,26 @@
       margin: 0; padding: 0;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     nav a {
       color: var(--muted);
-      font-size: .88rem;
+      font-size: .86rem;
       font-weight: 650;
-      padding: 9px 10px;
-      border-radius: 9px;
-      transition: color .2s ease, background .2s ease;
+      padding: 8px 9px;
+      border-radius: 8px;
+      transition: color .15s ease, background .15s ease;
     }
-    nav a:hover, nav a.active { color: var(--text); background: rgba(90,169,214,.10); }
+    nav a:hover, nav a.active { color: var(--primary-dark); background: #e8f2f8; }
     nav a::after { display: none; }
 
     .menu-toggle {
       display: none;
-      width: 44px; height: 44px;
-      border-radius: 10px;
+      width: 42px; height: 42px;
+      border-radius: 9px;
       border: 1px solid var(--line);
       color: var(--text);
       background: var(--surface);
@@ -171,71 +155,53 @@
       cursor: pointer;
     }
 
-    .section, .hero-shell, footer {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
     .section { padding: 86px 0 0; }
-
     .section-kicker {
       text-transform: uppercase;
-      letter-spacing: .20em;
+      letter-spacing: .16em;
       color: var(--primary);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       text-align: left;
       font-size: .74rem;
-      margin-bottom: 12px;
       font-weight: 800;
+      margin-bottom: 10px;
     }
 
     .section-title {
       text-align: left;
       margin: 0 0 12px;
       font-family: 'Inter', sans-serif;
-      font-size: clamp(2rem, 4vw, 3.15rem);
-      line-height: 1.05;
-      letter-spacing: -.035em;
+      font-size: clamp(1.9rem, 3vw, 2.75rem);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      color: var(--text);
     }
 
     .section-sub {
-      max-width: 820px;
-      margin: 0 0 34px;
+      max-width: 780px;
+      margin: 0 0 32px;
       text-align: left;
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
     .hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 92vh;
       padding-top: var(--header-h);
       display: grid;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: var(--header-h) 0 auto;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
-      z-index: 1;
+      place-items: center;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--line);
     }
 
     .hero-shell {
-      min-height: calc(100vh - var(--header-h));
+      min-height: calc(92vh - var(--header-h));
       display: grid;
-      grid-template-columns: 1.02fr .98fr;
+      grid-template-columns: 1.05fr .95fr;
       gap: 44px;
       align-items: center;
-      padding: 56px 0;
+      padding: 52px 0;
     }
-
-    .hero-copy, .hero-visual { position: relative; z-index: 2; }
 
     .eyebrow {
       display: inline-flex;
@@ -243,16 +209,16 @@
       gap: 10px;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(90,169,214,.28);
-      background: rgba(90,169,214,.08);
-      color: #cfe9fb;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--primary-dark);
       margin-bottom: 18px;
       font-size: .88rem;
       font-weight: 700;
     }
-
+    .eyebrow::after { content: 'Engineering Portfolio'; }
     .pulse-dot {
-      width: 8px; height: 8px;
+      width: 9px; height: 9px;
       border-radius: 50%;
       background: var(--success);
       box-shadow: none;
@@ -261,183 +227,148 @@
 
     .hero h1 {
       font-family: 'Inter', sans-serif;
-      font-size: clamp(3rem, 7vw, 5.8rem);
-      line-height: .95;
+      font-size: clamp(2.8rem, 6vw, 5.35rem);
+      line-height: .98;
       margin: 0 0 18px;
-      letter-spacing: -.055em;
+      letter-spacing: -.05em;
     }
-
     .hero h1 .grad, .text-gradient {
-      background: linear-gradient(135deg, #ffffff, #9ed6ff 56%, #f0b84a);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: var(--primary-dark);
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
     }
 
     .lead {
       color: var(--muted);
       line-height: 1.78;
       font-size: 1.04rem;
-      max-width: 720px;
-      margin: 0 0 24px;
+      max-width: 700px;
+      margin-bottom: 24px;
     }
 
-    .hero-actions, .card-actions, .toolbar, .hero-metrics {
+    .hero-actions, .card-actions, .toolbar, .hero-metrics, .tag-row, .tech-row, .career-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 9px;
-      padding: 12px 16px;
+      padding: 11px 15px;
       border-radius: 10px;
       border: 1px solid var(--line);
-      font-weight: 800;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      font-weight: 750;
       cursor: pointer;
+      transition: background .15s ease, border-color .15s ease, color .15s ease;
     }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--primary); color: #061018; border-color: rgba(255,255,255,.08); }
-    .btn-primary:hover { background: #76bee7; }
-    .btn-secondary { background: rgba(255,255,255,.055); color: var(--text); }
-    .btn-secondary:hover, .btn-ghost:hover { border-color: rgba(90,169,214,.35); background: rgba(90,169,214,.10); }
-    .btn-ghost { background: transparent; color: var(--muted); }
+    .btn:hover { transform: none; }
+    .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+    .btn-secondary, .btn-ghost { background: var(--surface); color: var(--primary-dark); }
+    .btn-secondary:hover, .btn-ghost:hover { background: #e8f2f8; border-color: #b8d3e4; }
+    .btn-sm { padding: 9px 12px; font-size: .88rem; }
 
-    .hero-metrics { margin-top: 22px; gap: 12px; }
+    .hero-metrics { margin-top: 24px; }
     .metric-chip {
-      min-width: 148px;
-      padding: 13px 14px;
+      min-width: 150px;
+      padding: 14px 15px;
       border-radius: 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: var(--surface);
+      box-shadow: none;
     }
-    .metric-chip strong { display: block; font-size: 1.02rem; margin-bottom: 4px; }
-    .metric-chip span { color: var(--muted); font-size: .82rem; line-height: 1.45; }
+    .metric-chip strong { display: block; font-size: 1.1rem; margin-bottom: 4px; color: var(--text); }
+    .metric-chip span { color: var(--muted); font-size: .84rem; }
 
     .quick-links {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
-      max-width: 760px;
-      margin-top: 18px;
+      max-width: 720px;
+      margin-top: 20px;
     }
     .quick-link {
       padding: 14px;
       border-radius: 12px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
+      background: var(--surface);
       color: var(--muted);
-      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      transition: border-color .15s ease, background .15s ease;
     }
+    .quick-link:hover { transform: none; border-color: #b8d3e4; background: #f7fbfe; color: var(--text); }
     .quick-link strong { color: var(--text); }
-    .quick-link:hover { transform: translateY(-3px); border-color: rgba(90,169,214,.35); background: rgba(90,169,214,.08); }
-    .quick-link::before { display: none; }
 
     .hero-visual { min-height: auto; perspective: none; }
-    .engineering-hero-card {
-      border: 1px solid var(--line-strong);
-      background: linear-gradient(180deg, rgba(17,27,38,.96), rgba(12,19,27,.96));
+    .engineering-hero-card, .panel, .contact-card, .metric-card, .feature-card, .timeline-item, .card, .presentation-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      border-radius: 22px;
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
-    }
-    .engineering-hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(90,169,214,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(90,169,214,.08) 1px, transparent 1px);
-      background-size: 28px 28px;
-      opacity: .28;
-      pointer-events: none;
-    }
-    .schematic-header, .schematic-footer {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-    .schematic-footer { border-top: 1px solid var(--line); border-bottom: 0; padding: 14px 0 0; margin-top: 16px; }
-    .blueprint-stage {
-      position: relative;
-      margin: 18px 0;
-      min-height: 320px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: rgba(7,14,22,.48);
-      overflow: hidden;
-    }
-    .blueprint-stage svg { width: 100%; height: 100%; min-height: 320px; display: block; }
-    .spec-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-    .spec-item {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(255,255,255,.045);
-      padding: 13px;
-    }
-    .spec-item strong { display: block; margin-bottom: 5px; }
-    .spec-item span { color: var(--muted); font-size: .84rem; line-height: 1.45; }
-
-    .about-grid, .contact-grid, .research-showcase, .impact-grid, .engineering-grid, .dashboard-grid, .present-grid, .tabs {
-      display: grid;
-      gap: 20px;
-    }
-    .about-grid { grid-template-columns: .82fr 1.18fr; }
-    .contact-grid { grid-template-columns: 1.05fr .95fr; align-items: stretch; }
-    .research-showcase { grid-template-columns: 1.05fr .95fr; align-items: stretch; }
-    .impact-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .engineering-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .dashboard-grid { grid-template-columns: 1.1fr .9fr; }
-    .present-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .tabs { grid-template-columns: repeat(3, max-content); justify-content: start; gap: 10px; }
-
-    .panel, .card, .timeline-item, .contact-card, .feature-card, .metric-card, .presentation-panel {
       border-radius: var(--radius);
       position: relative;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.028));
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 28px rgba(0,0,0,.18);
       backdrop-filter: none;
-      padding: 22px;
-      transform: none !important;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
-    .card:hover, .feature-card:hover, .metric-card:hover, .presentation-panel:hover, .timeline-item:hover {
-      transform: translateY(-3px) !important;
-      border-color: rgba(90,169,214,.35);
-      box-shadow: 0 14px 34px rgba(0,0,0,.23);
+    .engineering-hero-card, .panel, .contact-card, .metric-card, .feature-card, .timeline-item, .card, .presentation-panel { padding: 22px; }
+    .engineering-hero-card { box-shadow: 0 18px 42px rgba(23,33,43,.10); }
+    .schematic-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
     }
+    .blueprint-stage {
+      margin-top: 18px;
+      min-height: 330px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #f9fbfd;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+    .blueprint-stage svg { width: 100%; height: auto; display: block; }
+    .spec-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+    .spec-item { padding: 12px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; }
+    .spec-item strong { display: block; margin-bottom: 5px; color: var(--text); }
+    .spec-item span { color: var(--muted); font-size: .86rem; line-height: 1.45; }
+
+    .about-grid, .contact-grid, .research-showcase, .dashboard-grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .contact-grid { grid-template-columns: 1.05fr .95fr; }
+    .impact-grid, .engineering-grid, .present-grid, .project-grid, .cert-grid, .research-grid, .leadership-grid, .poem-grid, .work-visual-grid, .fact-grid {
+      display: grid;
+      gap: 18px;
+    }
+    .impact-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    .project-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .cert-grid, .research-grid, .leadership-grid, .fact-grid, .work-visual-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .present-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .poem-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+
+    .card:hover, .feature-card:hover, .metric-card:hover, .presentation-panel:hover { transform: none; border-color: var(--line-strong); box-shadow: var(--shadow); }
     .card::before, .feature-card::before, .metric-card::before, .timeline-item::before { display: none; }
 
     .profile-visual { display: grid; gap: 16px; align-content: start; }
     .profile-photo {
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
       min-height: 430px;
       border: 1px solid var(--line);
+      background: var(--surface-2);
       position: relative;
-      background: var(--surface);
     }
     .profile-photo::after { display: none; }
     .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
@@ -447,36 +378,24 @@
       display: grid;
       place-items: center;
       min-height: 52px;
-      border-radius: 12px;
+      border-radius: 10px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-      font-size: 1.1rem;
-      transition: .2s ease;
+      background: var(--surface-2);
+      color: var(--primary-dark);
+      font-size: 1.15rem;
+      transition: background .15s ease, border-color .15s ease;
     }
-    .social-link:hover { transform: translateY(-2px); border-color: rgba(90,169,214,.35); background: rgba(90,169,214,.09); }
+    .social-link:hover { transform: none; border-color: #b8d3e4; background: #e8f2f8; }
 
-    .fact-grid, .cert-grid, .project-grid, .leadership-grid, .poem-grid, .research-grid, .work-visual-grid {
-      display: grid;
-      gap: 16px;
-    }
-    .fact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .cert-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .project-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    .leadership-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .poem-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
-    .research-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .work-visual-grid { grid-template-columns: repeat(2, minmax(0,1fr)); margin-top: 20px; }
-
-    .fact-card, .insight, .research-bullet, .contact-item, .legend-item, .stat-box, .floating-note, .tech-pill, .project-tag, .career-chip {
-      border-radius: 12px;
+    .fact-card, .insight, .research-bullet, .contact-item, .legend-item, .stat-box, .floating-note, .tech-pill, .project-tag, .career-chip, .pill, .tab-btn {
+      border-radius: 10px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
+      background: var(--surface-2);
     }
-    .fact-card { padding: 15px; }
-    .fact-label { font-size: .78rem; color: var(--primary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; }
-    .fact-value { font-weight: 650; line-height: 1.55; }
-
-    .body-copy, .muted { color: var(--muted); line-height: 1.75; }
+    .fact-card { padding: 14px; }
+    .fact-label { font-size: .82rem; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
+    .fact-value { font-weight: 650; line-height: 1.55; color: var(--text); }
+    .body-copy, .muted { color: var(--muted); line-height: 1.72; }
     .small { font-size: .92rem; }
     .tiny { font-size: .8rem; }
 
@@ -485,78 +404,65 @@
       align-items: center;
       gap: 8px;
       padding: 7px 10px;
-      color: var(--muted);
-      font-size: .8rem;
-      margin-bottom: 10px;
-      border-radius: 999px;
+      color: var(--primary-dark);
+      font-size: .82rem;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
-    .tag-row, .tech-row, .career-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
-    .tab-btn {
-      cursor: pointer;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      transition: .2s ease;
-      margin-bottom: 0;
-    }
-    .tab-btn:hover, .tab-btn.active { color: var(--text); border-color: rgba(90,169,214,.35); background: rgba(90,169,214,.10); transform: translateY(-1px); }
+    .project-tag, .tech-pill, .career-chip { margin-bottom: 0; color: var(--muted); font-weight: 650; }
+    .tab-btn { cursor: pointer; margin-bottom: 0; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .tab-btn:hover, .tab-btn.active { color: var(--primary-dark); border-color: #b8d3e4; background: #e8f2f8; transform: none; }
     .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeIn .25s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .tab-content.active { display: block; animation: none; }
 
     .card-media {
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       border: 1px solid var(--line);
       aspect-ratio: 16 / 10;
-      background: var(--surface);
+      background: var(--surface-2);
       position: relative;
     }
-    .card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
-    .card:hover .card-media img { transform: scale(1.02); }
+    .card-media img { width: 100%; height: 100%; object-fit: cover; transition: none; }
+    .card:hover .card-media img { transform: none; }
 
-    .impact-grid .metric-card { text-align: left; min-height: 175px; }
-    .metric-card strong { display: block; font-size: clamp(1.15rem, 2vw, 1.35rem); margin: 12px 0 8px; font-weight: 850; line-height: 1.2; }
+    .metric-card strong {
+      display: block;
+      font-size: 1.35rem;
+      margin: 10px 0 8px;
+      font-weight: 850;
+      color: var(--text);
+    }
     .impact-icon {
       width: 44px; height: 44px;
       border-radius: 10px;
       display: grid; place-items: center;
-      font-size: 1.1rem;
-      background: rgba(90,169,214,.12);
-      border: 1px solid rgba(90,169,214,.24);
-      color: #b7e3ff;
+      font-size: 1.15rem;
+      background: #e8f2f8;
+      border: 1px solid #c8dce8;
+      color: var(--primary-dark);
     }
 
-    .dashboard-grid .feature-card { min-height: 380px; }
-    .engineering-visual, .hvac-sim, .reliability-dashboard, .timeline-visual {
-      width: 100%; height: 100%; min-height: 300px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(7,14,22,.42);
-      position: relative;
-      overflow: hidden;
-    }
-    .engineering-visual svg, .timeline-visual svg, .hvac-sim svg, .reliability-dashboard svg { width: 100%; height: 100%; display: block; }
-
-    .research-bullets { display: grid; gap: 12px; margin-top: 16px; }
-    .research-bullet { padding: 14px; display: flex; align-items: flex-start; gap: 11px; }
-    .research-bullet i { color: var(--primary); font-size: 1rem; margin-top: 2px; }
-    .research-abstract { padding: 18px; border-radius: 14px; background: rgba(255,255,255,.035); border: 1px solid var(--line); margin-top: 16px; }
+    .research-abstract { padding: 16px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); margin-top: 14px; }
+    .research-bullets { display: grid; gap: 10px; margin-top: 14px; }
+    .research-bullet { padding: 13px; display: flex; align-items: flex-start; gap: 10px; }
+    .research-bullet i { color: var(--success); font-size: 1rem; margin-top: 2px; }
 
     .timeline { display: grid; gap: 18px; }
-    .timeline-item { display: grid; grid-template-columns: 170px 1fr; gap: 18px; }
+    .timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 20px; }
     .timeline-side { display: grid; align-content: start; gap: 12px; }
-    .timeline-logo { width: 100%; max-width: 150px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255,255,255,.04); padding: 10px; overflow: hidden; }
-    .timeline-logo img { width: 100%; height: 100%; object-fit: contain; max-height: 90px; }
-    .timeline-body h3, .card h3, .card h4, .feature-card h3, .contact-card h3 { margin-top: 0; line-height: 1.25; }
-    .timeline-body ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.75; }
+    .timeline-logo { width: 100%; max-width: 150px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); padding: 10px; overflow: hidden; }
+    .timeline-logo img { width: 100%; height: 100%; object-fit: contain; max-height: 88px; }
+    .timeline-body h3, .card h3, .card h4, .feature-card h3, .contact-card h3 { margin-top: 0; line-height: 1.25; color: var(--text); }
+    .timeline-body ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.72; }
+    .work-visual-grid { margin-top: 18px; }
+    .work-visual-grid img { width: 100%; height: 320px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); box-shadow: var(--shadow); transition: none; }
+    .work-visual-grid img:hover { transform: none; }
 
-    .work-visual-grid img { width: 100%; height: 330px; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 24px rgba(0,0,0,.18); transition: transform .2s ease; }
-    .work-visual-grid img:hover { transform: translateY(-3px); }
-    .leadership-grid .card, .research-grid .card, .project-grid .card, .cert-grid .card, .poem-grid .card { min-height: 100%; }
     .poem-card { cursor: pointer; }
     .poem-card p { margin: 0; }
-
     .poem-modal {
       position: fixed;
       inset: 0;
@@ -564,83 +470,77 @@
       display: none;
       place-items: center;
       padding: 20px;
-      background: rgba(4,8,12,.76);
-      backdrop-filter: blur(8px);
+      background: rgba(23,33,43,.55);
+      backdrop-filter: blur(6px);
     }
     .poem-modal.active { display: grid; }
     .poem-modal-card {
       width: min(760px, 100%);
       max-height: min(84vh, 900px);
       overflow: auto;
-      border-radius: 18px;
-      padding: 24px;
+      border-radius: 16px;
+      padding: 26px;
       background: var(--surface);
-      border: 1px solid var(--line-strong);
+      border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
-    .poem-modal-close { margin-left: auto; width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; border: 1px solid var(--line); background: rgba(255,255,255,.055); color: var(--text); cursor: pointer; }
-    .poem-modal-body { color: var(--muted); line-height: 1.9; margin-top: 14px; white-space: normal; }
+    .poem-modal-close { margin-left: auto; width: 40px; height: 40px; border-radius: 9px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--surface-2); color: var(--text); cursor: pointer; }
+    .poem-modal-body { color: var(--muted); line-height: 1.85; margin-top: 14px; white-space: normal; }
 
     .contact-list { display: grid; gap: 12px; margin-top: 16px; }
     .contact-item { display: flex; align-items: center; gap: 13px; padding: 14px; }
-    .contact-item i { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: rgba(90,169,214,.12); color: #b7e3ff; }
+    .contact-item i { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 9px; background: #e8f2f8; color: var(--primary-dark); }
     .contact-form { display: grid; gap: 12px; margin-top: 16px; }
-    .contact-form input, .contact-form textarea { width: 100%; border: 1px solid var(--line); background: rgba(255,255,255,.04); border-radius: 12px; color: var(--text); padding: 13px 14px; outline: none; transition: border-color .2s ease, background .2s ease; }
-    .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(90,169,214,.45); background: rgba(255,255,255,.06); }
-    .contact-form textarea { min-height: 130px; resize: vertical; }
+    .contact-form input, .contact-form textarea { width: 100%; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; color: var(--text); padding: 12px 13px; outline: none; transition: border-color .15s ease, background .15s ease; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary); background: #fff; }
+    .contact-form textarea { min-height: 125px; resize: vertical; }
 
-    .floating-toolbar { position: fixed; right: 18px; bottom: 18px; z-index: 1000; display: grid; gap: 10px; }
-    .tool-btn { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--line); background: rgba(17,27,38,.92); color: var(--text); display: grid; place-items: center; box-shadow: 0 12px 30px rgba(0,0,0,.22); cursor: pointer; transition: transform .2s ease, background .2s ease; }
-    .tool-btn:hover { transform: translateY(-2px); background: var(--surface-2); }
+    .floating-toolbar { position: fixed; right: 18px; bottom: 18px; z-index: 1000; display: grid; gap: 9px; }
+    .tool-btn { width: 46px; height: 46px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--primary-dark); display: grid; place-items: center; box-shadow: var(--shadow); cursor: pointer; transition: background .15s ease; }
+    .tool-btn:hover { transform: none; background: #e8f2f8; }
 
-    footer { margin-top: 70px; padding: 22px 0 30px; border-top: 1px solid var(--line); color: var(--muted); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; z-index: 2; }
-    .gradient-line { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(90,169,214,.5), rgba(240,184,74,.45), transparent); margin: 20px 0 0; opacity: .8; }
+    footer {
+      margin-top: 70px;
+      padding: 24px 0 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+    .gradient-line { width: 100%; height: 1px; background: var(--line); margin: 18px 0 0; opacity: 1; }
 
-    [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .45s ease, transform .45s ease; }
-    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+    [data-reveal].revealed { opacity: 1; transform: none; }
     .parallax { will-change: auto; transition: none; }
 
     @media (max-width: 1120px) {
       .hero-shell, .about-grid, .contact-grid, .research-showcase, .dashboard-grid { grid-template-columns: 1fr; }
-      .project-grid, .engineering-grid, .impact-grid, .poem-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .hero-visual { max-width: 760px; }
+      .project-grid, .engineering-grid, .impact-grid, .poem-grid, .present-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
-
     @media (max-width: 860px) {
       .menu-toggle { display: grid; }
       nav { position: fixed; top: calc(var(--header-h) + 8px); left: 16px; right: 16px; transform: translateY(-10px); opacity: 0; visibility: hidden; transition: .2s ease; }
       nav.open { transform: translateY(0); opacity: 1; visibility: visible; }
-      nav ul { flex-direction: column; align-items: stretch; background: rgba(9,16,24,.98); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); border: 1px solid var(--line); }
-      nav a { display: block; }
+      nav ul { flex-direction: column; align-items: stretch; background: rgba(255,255,255,.98); border-radius: 12px; padding: 12px; box-shadow: var(--shadow); border: 1px solid var(--line); }
       .quick-links, .social-grid, .fact-grid, .cert-grid, .project-grid, .leadership-grid, .poem-grid, .research-grid, .engineering-grid, .impact-grid, .work-visual-grid, .present-grid, .spec-grid { grid-template-columns: 1fr; }
-      .tabs { grid-template-columns: 1fr; }
       .timeline-item { grid-template-columns: 1fr; }
-      .hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
-      .blueprint-stage, .blueprint-stage svg { min-height: 260px; }
+      .hero h1 { font-size: clamp(2.45rem, 12vw, 4rem); }
     }
-
     @media (max-width: 560px) {
-      .section, .hero-shell, .nav-wrap, footer { width: min(calc(100% - 22px), var(--max)); }
-      .section { padding-top: 72px; }
-      .panel, .card, .metric-card, .feature-card, .contact-card, .timeline-item, .poem-modal-card, .presentation-panel { padding: 17px; }
+      .section, .hero-shell, .nav-wrap, footer { width: min(calc(100% - 24px), var(--max)); }
+      .panel, .card, .metric-card, .feature-card, .contact-card, .timeline-item, .poem-modal-card, .presentation-panel, .engineering-hero-card { padding: 18px; }
       .hero-actions, .toolbar { flex-direction: column; }
       .btn { justify-content: center; }
       .floating-toolbar { right: 12px; bottom: 12px; }
       .tool-btn { width: 44px; height: 44px; }
     }
-
-  </style>
+</style>
 </head>
-<body>
-
-
-
-
-
+<body class="minimal-engineering-theme">
 <div class="grid-overlay"></div>
-
-
-
 <div class="progress-bar" id="progressBar"></div>
 <header>
 <div class="nav-wrap">
@@ -671,7 +571,7 @@
 <div class="hero-copy" data-reveal="">
 <div class="eyebrow"><span class="pulse-dot"></span></div>
 <h1>I am <span class="grad">Yaman Pandey</span></h1>
-<p class="lead">Mechanical Engineer, EIT, graduate student in Manufacturing Engineering Technology, and incoming Doctor of Philosophy (PhD) student in Industrial and Systems Engineering at Mississippi State University. This portfolio presents my work across reliability engineering, manufacturing systems, HVAC optimization, predictive maintenance, leadership, and technical storytelling.</p>
+<p class="lead">Mechanical Engineer, EIT, graduate student in Manufacturing Engineering Technology, and incoming Doctor of Philosophy (PhD) student in Industrial and Systems Engineering at Mississippi State University. This portfolio summarizes my work in reliability engineering, manufacturing systems, HVAC optimization, predictive maintenance, and technical leadership.</p>
 <div class="hero-actions">
 <a class="btn btn-primary" href="#about"><i class="bi bi-person-badge"></i> Explore Profile</a>
 <a class="btn btn-secondary" href="#research"><i class="bi bi-activity"></i> View Research</a>
@@ -697,7 +597,6 @@
 <a class="quick-link" href="#contact"><strong>Connect</strong><br/><span class="tiny">Email, phone, résumé, and socials</span></a>
 </div>
 </div>
-
 <div class="hero-visual" data-reveal="">
 <div class="engineering-hero-card">
 <div class="schematic-header">
@@ -759,7 +658,6 @@
 </div>
 </div>
 </div>
-
 </div>
 </section>
 <main>
@@ -791,7 +689,7 @@
 </div>
 <div class="fact-card">
 <div class="fact-label">Graduate Education</div>
-<div class="fact-value">Master of Science in Manufacturing Engineering Technology<br/><span class="muted small"> Graduated: May 2026</span></div>
+<div class="fact-value">Master of Science in Manufacturing Engineering Technology<br/><span class="muted small">Expected Graduation: December 2026</span></div>
 </div>
 <div class="fact-card">
 <div class="fact-label">Undergraduate Degree</div>
@@ -916,7 +814,7 @@
 <section class="section" id="projects">
 <div class="section-kicker" data-reveal="">Build</div>
 <h2 class="section-title" data-reveal="">Academic projects</h2>
-<p class="section-sub" data-reveal="">A curated project library combining design, simulation, analysis, manufacturing, programming, and systems thinking.</p>
+<p class="section-sub" data-reveal="">Selected academic and engineering projects organized in one place without repeating the same work in later sections.</p>
 <div class="project-grid">
 <article class="card" data-reveal="">
 <div class="card-media"><img alt="Hockey Stadium Construction Project" src="assets/img/Screenshot 2025-01-22 125600.jpg"/></div>
@@ -979,214 +877,108 @@
 </article>
 </div>
 </section>
+
 <section class="section" id="research">
-<div class="section-kicker" data-reveal="">Investigation</div>
+<div class="section-kicker" data-reveal="">Research</div>
 <h2 class="section-title" data-reveal="">Academic research</h2>
-<p class="section-sub" data-reveal="">A cleaner research hub with stronger storytelling, smoother transitions, and clearer separation between studies, findings, and presentation-ready material.</p>
-<div class="research-showcase">
-<div class="panel" data-reveal="">
+<p class="section-sub" data-reveal="">Selected research work presented once, with clear summaries and practical engineering relevance.</p>
 <div class="research-grid">
-<article class="card">
+<article class="card" data-reveal="">
+<div class="pill"><i class="bi bi-soundwave"></i> Predictive Maintenance</div>
+<h3>Vibration-Based Fault Diagnosis in Industrial Rotating Machinery</h3>
+<p class="muted">Applies vibration analysis and expert-validated interpretation to support predictive maintenance decisions for rotating equipment in a manufacturing environment.</p>
+<ul class="muted" style="padding-left:18px; line-height:1.72; margin:0;">
+<li>Monitored 32 rotating assets, including motors and fans, using sensor data from a manufacturing site in Minnesota.</li>
+<li>Focused on early fault detection, downtime reduction, and maintenance planning.</li>
+<li>Connected data-driven diagnosis with reliability engineering review.</li>
+</ul>
+<div class="tag-row">
+<span class="project-tag">Vibration Analysis</span>
+<span class="project-tag">Predictive Maintenance</span>
+<span class="project-tag">Reliability</span>
+</div>
+</article>
+<article class="card" data-reveal="">
+<div class="pill"><i class="bi bi-house-gear"></i> Building Energy</div>
+<h3>Integrating Smart Thermostat and Weather Forecasting Data for Real-Time HVAC Efficiency Optimization</h3>
+<p class="muted">Developed a practical residential HVAC control strategy using smart thermostat behavior and short-term weather forecasting to reduce heating energy while maintaining comfort.</p>
+<ul class="muted" style="padding-left:18px; line-height:1.72; margin:0;">
+<li>Used two weeks of operating data from a 2250 sq. ft. single-family home in Southern Minnesota.</li>
+<li>Modeled heating behavior using a simplified RC thermal system.</li>
+<li>Compared static thermostat control with weather-informed adjustment.</li>
+</ul>
+<div class="tag-row">
+<span class="project-tag">HVAC</span>
+<span class="project-tag">Smart Thermostat</span>
+<span class="project-tag">Energy Optimization</span>
+</div>
+</article>
+<article class="card" data-reveal="">
 <div class="pill"><i class="bi bi-flower1"></i> Lean Manufacturing</div>
 <h3>Application of Lean Manufacturing in the Food Powder Products Sector</h3>
-<p class="muted">Researched the application of lean manufacturing in the food powder products sector for a graduate-level lean manufacturing course.</p>
-<ul class="muted" style="padding-left:18px; line-height:1.8; margin:0;">
-<li>Determined how lean practices are currently used in powder food plants.</li>
-<li>Investigated opportunities for improvement using lean principles.</li>
-<li>Documented findings, recommendations, and implementation insights in a research paper.</li>
+<p class="muted">Studied how lean manufacturing principles can support process improvement, waste reduction, and operational efficiency in powder food production systems.</p>
+<ul class="muted" style="padding-left:18px; line-height:1.72; margin:0;">
+<li>Reviewed current lean practice adoption in food powder production.</li>
+<li>Identified improvement opportunities using lean tools and systems thinking.</li>
+<li>Documented recommendations for practical manufacturing improvement.</li>
 </ul>
-</article>
-<article class="card">
-<div class="pill"><i class="bi bi-house-gear"></i> Building Energy Research</div>
-<h3>Integrating Smart Thermostat and Weather Forecasting Data for Real-Time HVAC Efficiency Optimization in Residential Buildings</h3>
-<p class="muted">Built around a predictive control concept that combines thermostat behavior with short-term weather forecasting to lower energy cost while maintaining comfort.</p>
-<ul class="muted" style="padding-left:18px; line-height:1.8; margin:0;">
-<li>Used two weeks of October data from a 2250 sq. ft. single-family home in Southern Minnesota.</li>
-<li>Modeled the gas furnace as a simple RC thermal system.</li>
-<li>Demonstrated lower monthly heating energy relative to static thermostat control.</li>
-</ul>
-</article>
-</div>
-</div>
-<div class="panel" data-reveal="">
-<div class="pill"><i class="bi bi-soundwave"></i> New Research Added</div>
-<h3 class="text-gradient">Vibration-Based Fault Diagnosis in Industrial Rotating Machinery</h3>
-<div class="research-abstract">
-<strong>Abstract</strong>
-<p class="muted" style="margin-bottom:0;">Unplanned downtime caused by rotating machines results in a significant percentage of the total downtime in manufacturing plants and leads to major production losses. Preventative maintenance helps reduce some of this risk, but it cannot predict upcoming downtime before it occurs. This creates the need for predictive maintenance. In this study, data-driven and expert-validated diagnosis using vibration analysis for rotary machinery is applied. The data is collected from a manufacturing site in Minnesota where 32 rotating assets, including motors and fans, are monitored with sensors. Reliability engineers review the data and make predictions for required maintenance work.</p>
-</div>
-<div class="research-bullets">
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Targets unplanned downtime in manufacturing</strong><br/><span class="muted small">Focuses on one of the biggest causes of lost production time in industrial plants.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Builds on predictive maintenance principles</strong><br/><span class="muted small">Moves beyond routine preventative maintenance by using data to identify problems before failure occurs.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Uses vibration analysis for diagnosis</strong><br/><span class="muted small">Applies a practical condition-monitoring technique for rotary machinery fault detection.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Combines data-driven and expert-validated insight</strong><br/><span class="muted small">Pairs sensor-based analysis with engineering review to improve maintenance decisions.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Monitors 32 rotating assets</strong><br/><span class="muted small">Includes motors and fans from a manufacturing site in Minnesota instrumented with sensors.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Supports maintenance planning</strong><br/><span class="muted small">Reliability engineers use the monitored data to predict and plan needed maintenance work.</span></div></div>
-</div>
-</div>
-</div>
-<div class="panel" data-reveal="" style="margin-top:24px;">
-<div class="pill"><i class="bi bi-thermometer-sun"></i> HVAC Optimization Research</div>
-<h3 class="text-gradient">Integrating Smart Thermostat and Weather Forecasting Data for Real-Time HVAC Efficiency Optimization in Residential Buildings</h3>
-<div class="research-abstract">
-<strong>Abstract</strong>
-<p class="muted" style="margin-bottom:0;">Heating, ventilating, and air conditioning (HVAC) systems account for significant portion of residential buildings’ energy consumption, especially in cold climate regions. Previous studies have shown the growing importance of smart thermostats. However, many existing studies are based on reviews, simulations, or large datasets rather than simple real-world studies. This paper studies a forecast informed thermostat control strategy for improving heating efficiency in a single-family residential building in Minnesota with 2,256 ft2 area where the building is equipped with a forced air natural gas furnace and a smart Sensi thermostat. With two weeks of study, week 1 was the data collection under a conventional fixed setpoint condition. This served as baseline data. For week 2, thermostat settings were manually adjusted using short-term weather forecasts. The baseline week produced the model y = 8.946 – 0.1017x, while week 2 produced y = 7.149-0.06102x signifying the furnace runtime improved by 22.34% at 00F compared to baseline week. This finding suggests that integrating smart thermostat data with short-term weather forecasts can provide a practical and low-cost approach for improving HVAC efficiency in residential buildings.</p>
-</div>
-<div class="research-bullets">
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Developed a predictive HVAC control framework</strong><br/><span class="muted small">Integrated smart thermostat data with short-term weather forecasting to support dynamic heating decisions.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Used real residential data</strong><br/><span class="muted small">Analyzed two weeks of October operating data from a 2250 sq. ft. single-family home in Southern Minnesota with a gas furnace.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Modeled the furnace as an RC thermal system</strong><br/><span class="muted small">Represented home heating behavior using the thermal analog of a resistor-capacitor network for simplified control analysis.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Applied weather-based heating control</strong><br/><span class="muted small">Selected thermostat settings based on outdoor conditions to balance indoor comfort and energy efficiency.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Demonstrated reduced heating energy use</strong><br/><span class="muted small">Showed that the proposed strategy can reduce monthly heating energy compared with static thermostat control.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Established a low-cost optimization pathway</strong><br/><span class="muted small">Highlighted a practical, residential-scale method for real-time HVAC efficiency improvement without expensive infrastructure.</span></div></div>
-</div>
-</div>
-</section>
-<section class="section" id="presentations">
-<div class="section-kicker" data-reveal="">Visual Work</div>
-<h2 class="section-title" data-reveal="">Presentations &amp; research visuals</h2>
-<p class="section-sub" data-reveal="">Poster-ready work, presentation assets, and clean visual storytelling for research and projects.</p>
-<div class="tabs" data-reveal="">
-<button class="tab-btn active" data-tab="tab-posters"><i class="bi bi-easel2"></i> Research Posters</button>
-<button class="tab-btn" data-tab="tab-project-talks"><i class="bi bi-file-earmark-slides"></i> Project Talks</button>
-<button class="tab-btn" data-tab="tab-visual-story"><i class="bi bi-images"></i> Visual Story</button>
-</div>
-<div class="panel" data-reveal="">
-<div class="tab-content active" id="tab-posters">
-<div class="present-grid">
-<article class="presentation-panel">
-<div class="card-media"><img alt="Research poster" src="assets/img/Research.png"/></div>
-<h3>Investigation of Pulsed Eddy Current for Multi-Target Non-Destructive Testing</h3>
-<p class="muted">Moved under a presentation-focused area. This research combines COMSOL simulation, LabVIEW testing, fabrication, and NDT experimentation.</p>
 <div class="tag-row">
-<span class="project-tag">Poster Research</span>
+<span class="project-tag">Lean</span>
+<span class="project-tag">Process Improvement</span>
+<span class="project-tag">Manufacturing Systems</span>
+</div>
+</article>
+<article class="card" data-reveal="">
+<div class="pill"><i class="bi bi-cpu"></i> NDT Research</div>
+<h3>Investigation of Pulsed Eddy Current for Multi-Target Non-Destructive Testing</h3>
+<p class="muted">Research presentation work combining simulation, experimentation, and technical communication around pulsed eddy current testing for multi-target inspection.</p>
+<ul class="muted" style="padding-left:18px; line-height:1.72; margin:0;">
+<li>Connected COMSOL simulation, LabVIEW testing, fabrication, and experimental validation.</li>
+<li>Presented findings in a poster-style technical format.</li>
+<li>Focused on clear communication of an applied sensing and inspection method.</li>
+</ul>
+<div class="tag-row">
 <span class="project-tag">NDT</span>
 <span class="project-tag">Pulsed Eddy Current</span>
+<span class="project-tag">Experimentation</span>
+</div>
+</article>
+</div>
+</section>
+
+
+<section class="section" id="presentations">
+<div class="section-kicker" data-reveal="">Presentation Materials</div>
+<h2 class="section-title" data-reveal="">Presentations &amp; technical communication</h2>
+<p class="section-sub" data-reveal="">Unique presentation materials are separated from the project library so the same projects do not appear twice.</p>
+<div class="present-grid">
+<article class="presentation-panel" data-reveal="">
+<div class="card-media"><img alt="Research poster" src="assets/img/Research.png"/></div>
+<h3>Investigation of Pulsed Eddy Current for Multi-Target Non-Destructive Testing</h3>
+<p class="muted">Poster-style research communication focused on simulation, testing, fabrication, and non-destructive inspection.</p>
+<div class="tag-row">
+<span class="project-tag">Research Poster</span>
+<span class="project-tag">NDT</span>
+<span class="project-tag">Technical Communication</span>
 </div>
 <div class="card-actions">
 <a class="btn btn-primary btn-sm" href="https://cornerstone.lib.mnsu.edu/urs/2021/undergraduate-poster-session-06/1/" target="_blank">Open Research Page</a>
 </div>
 </article>
-<article class="presentation-panel">
-<div class="card-media"><img alt="Hockey stadium presentation" src="assets/img/Screenshot 2025-01-22 125600.jpg"/></div>
-<h3>Hockey Stadium Construction Presentation</h3>
-<p class="muted">Graduate project presentation focused on project delivery, planning, execution, and control.</p>
-<div class="card-actions">
-<a class="btn btn-secondary btn-sm" href="/assets/pdf/Hockey stadium presentation.pptx" target="_blank">Open Presentation</a>
-</div>
-</article>
-<article class="presentation-panel">
-<div class="card-media"><img alt="Envelope mechanism" src="assets/img/Envelope.png"/></div>
-<h3>Envelope Feeding and Stamping Presentation</h3>
-<p class="muted">Mechanism design presentation showing motion design, automation thinking, and system visualization.</p>
-<div class="card-actions">
-<a class="btn btn-secondary btn-sm" href="/assets/pdf/418.pptx" target="_blank">Open Presentation</a>
-</div>
-</article>
-</div>
-</div>
-<div class="tab-content" id="tab-project-talks">
-<div class="present-grid">
-<article class="presentation-panel">
-<div class="card-media"><img alt="Combat robot" src="assets/img/combat robot.jpeg"/></div>
-<h3>Combat Robot</h3>
-<p class="muted">A competition-ready engineering story combining design, programming, controls, and fabrication.</p>
-</article>
-<article class="presentation-panel">
-<div class="card-media"><img alt="Carbon fiber" src="assets/img/306.png"/></div>
-<h3>Carbon Fiber in Aviation</h3>
-<p class="muted">Research communication around advanced materials, future applications, and engineering value.</p>
-</article>
-<article class="presentation-panel">
-<div class="card-media"><img alt="Bicycle frame" src="assets/img/Bicycle.jpg"/></div>
-<h3>Bicycle Frame Design</h3>
-<p class="muted">A visually strong project for CAD, structural thinking, and lightweight design optimization.</p>
-</article>
-</div>
-</div>
-<div class="tab-content" id="tab-visual-story">
-<div class="present-grid">
-<article class="presentation-panel">
-<div class="card-media"><img alt="Manufacturing visual" src="assets/img/alm.jpg"/></div>
-<h3>Manufacturing &amp; Reliability</h3>
-<p class="muted">Visual framing of plant reliability, asset strategy, and production-facing engineering work.</p>
-</article>
-<article class="presentation-panel">
-<div class="card-media"><img alt="Boat manufacturing" src="assets/img/boat.jpeg"/></div>
-<h3>Production Systems</h3>
-<p class="muted">A visual story around manufacturing execution, teamwork, and practical engineering delivery.</p>
-</article>
-<article class="presentation-panel">
-<div class="card-media"><img alt="Engine assembly" src="assets/img/Engine.png"/></div>
-<h3>Mechanical Assembly</h3>
-<p class="muted">Strong visual support for component thinking, digital assembly, and mechanical communication.</p>
-</article>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="work">
-<div class="section-kicker" data-reveal="">Investigation</div>
-<h2 class="section-title" data-reveal="">Academic research</h2>
-<div class="research-showcase">
-<div class="panel" data-reveal="">
-<div class="research-grid">
-<article class="card">
-<div class="pill"><i class="bi bi-flower1"></i> Lean Manufacturing</div>
-<h3>Application of Lean Manufacturing in the Food Powder Products Sector</h3>
-<p class="muted">Researched the application of lean manufacturing in the food powder products sector for a graduate-level lean manufacturing course.</p>
-<ul class="muted" style="padding-left:18px; line-height:1.8; margin:0;">
-<li>Determined how lean practices are currently used in powder food plants.</li>
-<li>Investigated opportunities for improvement using lean principles.</li>
-<li>Documented findings, recommendations, and implementation insights in a research paper.</li>
-</ul>
-</article>
-<article class="card">
-<div class="pill"><i class="bi bi-house-gear"></i> Building Energy Research</div>
-<h3>Integrating Smart Thermostat and Weather Forecasting Data for Real-Time HVAC Efficiency Optimization in Residential Buildings</h3>
-<p class="muted">Built around a predictive control concept that combines thermostat behavior with short-term weather forecasting to lower energy cost while maintaining comfort.</p>
-<ul class="muted" style="padding-left:18px; line-height:1.8; margin:0;">
-<li>Used two weeks of October data from a 2250 sq. ft. single-family home in Southern Minnesota.</li>
-<li>Modeled the gas furnace as a simple RC thermal system.</li>
-<li>Demonstrated lower monthly heating energy relative to static thermostat control.</li>
+<article class="presentation-panel" data-reveal="">
+<div class="pill"><i class="bi bi-easel2"></i> Communication Focus</div>
+<h3>Engineering Presentation Style</h3>
+<p class="muted">This section now highlights communication materials without repeating the same project cards from the Academic Projects section.</p>
+<ul class="muted" style="padding-left:18px; line-height:1.72; margin:0;">
+<li>Clear problem statement and project objective.</li>
+<li>Concise methods, tools, and engineering assumptions.</li>
+<li>Readable visuals that support technical decision making.</li>
 </ul>
 </article>
 </div>
-</div>
-<div class="panel" data-reveal="">
-<div class="pill"><i class="bi bi-soundwave"></i> New Research Added</div>
-<h3 class="text-gradient">Vibration-Based Fault Diagnosis in Industrial Rotating Machinery</h3>
-<div class="research-abstract">
-<strong>Abstract</strong>
-<p class="muted" style="margin-bottom:0;">Unplanned downtime caused by rotating machines results in a significant percentage of the total downtime in manufacturing plants and leads to major production losses. Preventative maintenance helps reduce some of this risk, but it cannot predict upcoming downtime before it occurs. This creates the need for predictive maintenance. In this study, data-driven and expert-validated diagnosis using vibration analysis for rotary machinery is applied. The data is collected from a manufacturing site in Minnesota where 32 rotating assets, including motors and fans, are monitored with sensors. Reliability engineers review the data and make predictions for required maintenance work.</p>
-</div>
-<div class="research-bullets">
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Targets unplanned downtime in manufacturing</strong><br/><span class="muted small">Focuses on one of the biggest causes of lost production time in industrial plants.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Builds on predictive maintenance principles</strong><br/><span class="muted small">Moves beyond routine preventative maintenance by using data to identify problems before failure occurs.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Uses vibration analysis for diagnosis</strong><br/><span class="muted small">Applies a practical condition-monitoring technique for rotary machinery fault detection.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Combines data-driven and expert-validated insight</strong><br/><span class="muted small">Pairs sensor-based analysis with engineering review to improve maintenance decisions.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Monitors 32 rotating assets</strong><br/><span class="muted small">Includes motors and fans from a manufacturing site in Minnesota instrumented with sensors.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Supports maintenance planning</strong><br/><span class="muted small">Reliability engineers use the monitored data to predict and plan needed maintenance work.</span></div></div>
-</div>
-</div>
-</div>
-<div class="panel" data-reveal="" style="margin-top:24px;">
-<div class="pill"><i class="bi bi-thermometer-sun"></i> HVAC Optimization Research</div>
-<h3 class="text-gradient">Integrating Smart Thermostat and Weather Forecasting Data for Real-Time HVAC Efficiency Optimization in Residential Buildings</h3>
-<div class="research-abstract">
-<strong>Abstract</strong>
-<p class="muted" style="margin-bottom:0;">This paper presents a predictive HVAC control framework integrating smart thermostat data and short-term weather forecasts. The study uses two weeks of October data from a 2250 sq. ft. single-family house with a gas furnace in Southern Minnesota. The furnace is modeled as a simple RC thermal system, and the weather-based control program selects heating settings that lower energy cost while maintaining comfort. For this experiment, the thermostat is manually adjusted with respect to outdoor temperature. The proposed strategy reduces monthly heating energy relative to static thermostat control and demonstrates a practical path to low-cost HVAC optimization in residential buildings.</p>
-</div>
-<div class="research-bullets">
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Developed a predictive HVAC control framework</strong><br/><span class="muted small">Integrated smart thermostat data with short-term weather forecasting to support dynamic heating decisions.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Used real residential data</strong><br/><span class="muted small">Analyzed two weeks of October operating data from a 2250 sq. ft. single-family home in Southern Minnesota with a gas furnace.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Modeled the furnace as an RC thermal system</strong><br/><span class="muted small">Represented home heating behavior using the thermal analog of a resistor-capacitor network for simplified control analysis.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Applied weather-based heating control</strong><br/><span class="muted small">Selected thermostat settings based on outdoor conditions to balance indoor comfort and energy efficiency.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Demonstrated reduced heating energy use</strong><br/><span class="muted small">Showed that the proposed strategy can reduce monthly heating energy compared with static thermostat control.</span></div></div>
-<div class="research-bullet"><i class="bi bi-check2-circle"></i><div><strong>Established a low-cost optimization pathway</strong><br/><span class="muted small">Highlighted a practical, residential-scale method for real-time HVAC efficiency improvement without expensive infrastructure.</span></div></div>
-</div>
-</div>
 </section>
+
+
 <section class="section" id="work">
 <div class="section-kicker" data-reveal="">Career</div>
 <h2 class="section-title" data-reveal="">Work experience</h2>
@@ -1335,7 +1127,6 @@
 </div>
 </div>
 <div class="floating-toolbar">
-
 <a aria-label="Back to top" class="tool-btn" href="#home"><i class="bi bi-arrow-up"></i></a>
 </div>
 <script>
